@@ -199,7 +199,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -275,7 +275,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T18:39:35+08:00">
                 2018-01-30
@@ -321,11 +321,9 @@
 <blockquote>
 <p>Object.defineProperty()<br>定义新属性或修改原来的属性<br>Object.defineProperty(obj,prop,descript);<br>@argm obj 目标对象<br>@argm prop 定义或修改的属性名称<br>@descriptor 目录属性所拥有的特性，对象类型：其属性包括：configurabel,enumerable,value,writable<br>@return 对象，即 obj 参数</p>
 </blockquote>
-<ol>
+<ul>
 <li><p>description 给属性设置一些特性</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    test:<span class="string">"hello"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对象已有的属性添加特性描述</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">"test"</span>,&#123;</span><br><span class="line">    configurable:<span class="literal">true</span> | <span class="literal">false</span>,</span><br><span class="line">    enumerable:<span class="literal">true</span> | <span class="literal">false</span>,</span><br><span class="line">    value:任意类型的值,</span><br><span class="line">    writable:<span class="literal">true</span> | <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//对象新添加的属性的特性描述</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">"newKey"</span>,&#123;</span><br><span class="line">    configurable:<span class="literal">true</span> | <span class="literal">false</span>,</span><br><span class="line">    enumerable:<span class="literal">true</span> | <span class="literal">false</span>,</span><br><span class="line">    value:任意类型的值,</span><br><span class="line">    writable:<span class="literal">true</span> | <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>属性特性</p>
 <ul>
 <li><p>[x] value 属性对应的值,可以使任意类型的值，默认为undefined</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="comment">//第一种情况：不设置value属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">"newKey"</span>,&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log( obj.newKey );  <span class="comment">//undefined</span></span><br><span class="line">------------------------------</span><br><span class="line"><span class="comment">//第二种情况：设置value属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">"newKey"</span>,&#123;</span><br><span class="line">    value:<span class="string">"hello"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log( obj.newKey );  <span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
@@ -361,8 +359,6 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
 <pre><code>注意：get或set不是必须成对出现，任写其一就可以。如果不设置方法，则get和set的默认值为undefined
 &gt; 在ie8下只能在DOM对象上使用，尝试在原生的对象使用 Object.defineProperty()会报错。
 </code></pre>
@@ -442,7 +438,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T17:44:20+08:00">
                 2018-01-30
@@ -620,7 +616,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T18:56:46+08:00">
                 2018-01-27
@@ -641,7 +637,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -775,7 +771,7 @@
                 <a href="/archives">
               
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -786,7 +782,7 @@
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 
               </div>
             
@@ -797,7 +793,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -843,7 +839,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
