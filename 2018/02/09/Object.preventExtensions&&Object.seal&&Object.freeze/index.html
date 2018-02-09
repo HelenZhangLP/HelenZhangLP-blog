@@ -80,7 +80,7 @@
 
 
 
-  <meta name="keywords" content="javascript,ES5," />
+  <meta name="keywords" content="javascript,ES5,Object," />
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
-<meta name="keywords" content="javascript,ES5">
+<meta name="description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
+<meta name="keywords" content="javascript,ES5,Object">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object.isExtensible()">
-<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/Object.isExtensible()/index.html">
+<meta property="og:title" content="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比">
+<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
+<meta property="og:description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T08:55:17.809Z">
+<meta property="og:updated_time" content="2018-02-09T10:24:33.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object.isExtensible()">
-<meta name="twitter:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
+<meta name="twitter:title" content="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比">
+<meta name="twitter:description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/09/Object.isExtensible()/"/>
+  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/"/>
 
 
 
 
 
-  <title>Object.isExtensible() | HelenZhang's Blog</title>
+  <title>Object.preventExtensions && Object.seal && Object.freeze 对比 | HelenZhang's Blog</title>
   
 
 
@@ -247,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/09/Object.isExtensible()/">
+    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liping Zhang">
@@ -264,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Object.isExtensible()</h1>
+          <h1 class="post-title" itemprop="name headline">Object.preventExtensions && Object.seal && Object.freeze 对比</h1>
         
 
         <div class="post-meta">
@@ -276,7 +276,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T11:38:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T17:59:52+08:00">
                 2018-02-09
               </time>
             
@@ -336,11 +336,55 @@
       
 
       
-        <blockquote>
-<p>Object.isExtensible(obj) 判断对象是否可扩展<br> @argm 要检测的对象<br> @return Boolean 是否可扩展<br> <code>默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改</code></p>
-</blockquote>
-<p><strong>DEMO</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新对象默认是可扩展的.</span></span><br><span class="line"><span class="keyword">var</span> empty = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(empty); <span class="comment">// === true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁止扩展对象变的不可扩展.</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(empty);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(empty); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 密封对象是不可扩展的.</span></span><br><span class="line"><span class="keyword">var</span> sealed = <span class="built_in">Object</span>.seal(&#123;&#125;);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(sealed); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 冻结对象也是不可扩展.</span></span><br><span class="line"><span class="keyword">var</span> frozen = <span class="built_in">Object</span>.freeze(&#123;&#125;);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(frozen); <span class="comment">// === false</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>在 ES5 中，如果参数不是一个对象类型，将抛出一个 TypeError 异常。在 ES6 中， non-object 参数将被视为一个不可扩展的普通对象，因此会返回 false 。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.isExtensible(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// TypeError: 1 is not an object (ES5 code)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// false                         (ES6 code)</span></span><br></pre></td></tr></table></figure></p>
+        <h4 id="Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表"><a href="#Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表" class="headerlink" title="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表"></a>Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表</h4><table>
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th style="text-align:left">Object.preventExtensions</th>
+<th style="text-align:left">Object.seal</th>
+<th style="text-align:left">Object.freeze</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>属性<br> writable</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td>属性<br> configurable</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td>检测方法<br> Object.isExtensible</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td>检测方法<br> Object.isSealed</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td>检测方法<br> Object.isFrozen</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td>总结</td>
+<td style="text-align:left">对象被禁止扩展<br>对象不能追加属性<br>可以修改属性值可以删除对象</td>
+<td style="text-align:left">对象被密封<br>可以修改属性值<br>不能添加和删除属性<br>密封的对象不是被冻结的对象</td>
+<td style="text-align:left">对象被冻结<br>不能重修属性<br>不能添加和删除属性</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj); <span class="comment">//obj 标记为不可扩展的对象</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">//false</span></span><br><span class="line"><span class="comment">//扩展测试</span></span><br><span class="line">obj.z = <span class="number">3</span>; <span class="comment">//undefined 扩展失败</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>) <span class="comment">//&#123;value: 1, writable: true, enumerable: true, configurable: true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.seal(obj);</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>); <span class="comment">//&#123;value: 1, writable: true, enumerable: true, configurable: false&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj) <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj);</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>); <span class="comment">//&#123;value: 1, writable: false, enumerable: true, configurable: false&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -372,6 +416,8 @@
           
             <i href="/tags/ES5/" rel="tag" class="fa fa-tag"># ES5</i>
           
+            <i href="/tags/Object/" rel="tag" class="fa fa-tag"># Object</i>
+          
         </div>
       
 
@@ -383,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/09/Object.seal()/" rel="next" title="Object.seal()">
-                <i class="fa fa-chevron-left"></i> Object.seal()
+              <a href="/2018/02/09/Object.freeze()/" rel="next" title="Object.freeze()">
+                <i class="fa fa-chevron-left"></i> Object.freeze()
               </a>
             
           </div>
@@ -393,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/09/Object.preventExtensions()/" rel="prev" title="Object.preventExtensisions()">
-                Object.preventExtensisions() <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/09/javascript 之 对象/" rel="prev" title="javascript 之 对象">
+                javascript 之 对象 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -527,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表"><span class="nav-number">1.</span> <span class="nav-text">Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表</span></a></li></ol></div>
             
 
           </div>
