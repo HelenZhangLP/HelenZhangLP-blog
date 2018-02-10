@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错  12345678910111213141516171819202122232425262728293031var obj = &amp;#123;1:1,true:2&amp;#125">
+<meta name="description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错">
 <meta name="keywords" content="javascript,ES5,Object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 之 对象">
 <meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/javascript 之 对象/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错  12345678910111213141516171819202122232425262728293031var obj = &amp;#123;1:1,true:2&amp;#125">
+<meta property="og:description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T10:25:09.091Z">
+<meta property="og:updated_time" content="2018-02-09T12:05:48.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 之 对象">
-<meta name="twitter:description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错  12345678910111213141516171819202122232425262728293031var obj = &amp;#123;1:1,true:2&amp;#125">
+<meta name="twitter:description" content="对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错">
 
 
 
@@ -339,6 +339,7 @@
         <blockquote>
 <p>对象中包含一系列属性，这些属性是无序的，每个属性都有 key(key 必须是字符串) 和对应的 value，如下 demo 若 key 为原始数据类型时，会通过 toString 方法转换为 string 类型，对象类型会报错</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,<span class="attr">true</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2 string</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,<span class="attr">null</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2 string</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,<span class="attr">undefined</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2 string</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,<span class="number">2</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2 string</span></span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Unexpected token &#123;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>:<span class="number">1</span>,[]:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">typeof</span> p)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1 Uncaught SyntaxError: Unexpected token ]</span></span><br></pre></td></tr></table></figure>
 <h4 id="对象结构"><a href="#对象结构" class="headerlink" title="对象结构"></a>对象结构</h4><blockquote>
 <p>对象<br> 对象属性 x=1;y=2<br> 对象属性特征：writable/enumerable/configurable/value/get/set<br> 原型[[proto]] z=3<br> [[class]]<br> [[extensible]] 对象是否允许继续追加属性</p>
@@ -445,6 +446,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/02/10/Array.prototype.every()/" rel="prev" title="Array.prototype.every()">
+                Array.prototype.every() <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -520,7 +525,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

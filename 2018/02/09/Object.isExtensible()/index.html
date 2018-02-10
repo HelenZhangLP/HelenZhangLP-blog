@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
+<meta name="description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改">
 <meta name="keywords" content="javascript,ES5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object.isExtensible()">
 <meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/Object.isExtensible()/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
+<meta property="og:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T08:55:17.809Z">
+<meta property="og:updated_time" content="2018-02-09T12:06:26.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.isExtensible()">
-<meta name="twitter:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改  DEMO123456789101112131415// 新对象默认是可扩展的.var empty = &amp;#123;&amp;#125;;Object.isExt">
+<meta name="twitter:description" content="Object.isExtensible(obj) 判断对象是否可扩展 @argm 要检测的对象 @return Boolean 是否可扩展 默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改">
 
 
 
@@ -339,6 +339,7 @@
         <blockquote>
 <p>Object.isExtensible(obj) 判断对象是否可扩展<br> @argm 要检测的对象<br> @return Boolean 是否可扩展<br> <code>默认情况下，对象是可扩展的：即可以为他们添加新的属性。以及它们的 __proto__  属性可以被更改</code></p>
 </blockquote>
+<a id="more"></a>
 <p><strong>DEMO</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新对象默认是可扩展的.</span></span><br><span class="line"><span class="keyword">var</span> empty = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(empty); <span class="comment">// === true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁止扩展对象变的不可扩展.</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(empty);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(empty); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 密封对象是不可扩展的.</span></span><br><span class="line"><span class="keyword">var</span> sealed = <span class="built_in">Object</span>.seal(&#123;&#125;);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(sealed); <span class="comment">// === false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 冻结对象也是不可扩展.</span></span><br><span class="line"><span class="keyword">var</span> frozen = <span class="built_in">Object</span>.freeze(&#123;&#125;);</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(frozen); <span class="comment">// === false</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>在 ES5 中，如果参数不是一个对象类型，将抛出一个 TypeError 异常。在 ES6 中， non-object 参数将被视为一个不可扩展的普通对象，因此会返回 false 。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.isExtensible(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// TypeError: 1 is not an object (ES5 code)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// false                         (ES6 code)</span></span><br></pre></td></tr></table></figure></p>
 
@@ -472,7 +473,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
