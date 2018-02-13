@@ -80,7 +80,7 @@
 
 
 
-  <meta name="keywords" content="javascript,ES5,Object," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
-<meta name="keywords" content="javascript,ES5,Object">
+<meta name="description" content="instanceof 判断对象类型 object instanceof constructor object 要检测的对象 constructor 检测对象与之比较的构造函数 instanceof 检测对象 object 在其原型链中是否存在一个构造函数的 prototype 属性。1234567891011121314151617181920212223242526272829303132333">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比">
-<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/index.html">
+<meta property="og:title" content="熟读 instanceof">
+<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/12/熟读 instanceof/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
+<meta property="og:description" content="instanceof 判断对象类型 object instanceof constructor object 要检测的对象 constructor 检测对象与之比较的构造函数 instanceof 检测对象 object 在其原型链中是否存在一个构造函数的 prototype 属性。1234567891011121314151617181920212223242526272829303132333">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T10:24:33.787Z">
+<meta property="og:updated_time" content="2018-02-13T09:17:09.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比">
-<meta name="twitter:description" content="Object.preventExtensions &amp;amp;&amp;amp; Object.seal &amp;amp;&amp;amp; Object.freeze 对比表   &amp;nbsp; Object.preventExtensions Object.seal Object.freeze     属性 writable true true false   属性 configurable true false fa">
+<meta name="twitter:title" content="熟读 instanceof">
+<meta name="twitter:description" content="instanceof 判断对象类型 object instanceof constructor object 要检测的对象 constructor 检测对象与之比较的构造函数 instanceof 检测对象 object 在其原型链中是否存在一个构造函数的 prototype 属性。1234567891011121314151617181920212223242526272829303132333">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/"/>
+  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/12/熟读 instanceof/"/>
 
 
 
 
 
-  <title>Object.preventExtensions && Object.seal && Object.freeze 对比 | HelenZhang's Blog</title>
+  <title>熟读 instanceof | HelenZhang's Blog</title>
   
 
 
@@ -247,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/">
+    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/12/熟读 instanceof/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liping Zhang">
@@ -264,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Object.preventExtensions && Object.seal && Object.freeze 对比</h1>
+          <h1 class="post-title" itemprop="name headline">熟读 instanceof</h1>
         
 
         <div class="post-meta">
@@ -276,8 +276,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T17:59:52+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T15:36:01+08:00">
+                2018-02-12
               </time>
             
 
@@ -336,55 +336,14 @@
       
 
       
-        <h4 id="Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表"><a href="#Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表" class="headerlink" title="Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表"></a>Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表</h4><table>
-<thead>
-<tr>
-<th>&nbsp;</th>
-<th style="text-align:left">Object.preventExtensions</th>
-<th style="text-align:left">Object.seal</th>
-<th style="text-align:left">Object.freeze</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>属性<br> writable</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td>属性<br> configurable</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td>检测方法<br> Object.isExtensible</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td>检测方法<br> Object.isSealed</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">true</td>
-<td style="text-align:left">true</td>
-</tr>
-<tr>
-<td>检测方法<br> Object.isFrozen</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">false</td>
-<td style="text-align:left">true</td>
-</tr>
-<tr>
-<td>总结</td>
-<td style="text-align:left">对象被禁止扩展<br>对象不能追加属性<br>可以修改属性值可以删除对象</td>
-<td style="text-align:left">对象被密封<br>可以修改属性值<br>不能添加和删除属性<br>密封的对象不是被冻结的对象</td>
-<td style="text-align:left">对象被冻结<br>不能重修属性<br>不能添加和删除属性</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj); <span class="comment">//obj 标记为不可扩展的对象</span></span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">//false</span></span><br><span class="line"><span class="comment">//扩展测试</span></span><br><span class="line">obj.z = <span class="number">3</span>; <span class="comment">//undefined 扩展失败</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>) <span class="comment">//&#123;value: 1, writable: true, enumerable: true, configurable: true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.seal(obj);</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>); <span class="comment">//&#123;value: 1, writable: true, enumerable: true, configurable: false&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj) <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj);</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(obj,<span class="string">'x'</span>); <span class="comment">//&#123;value: 1, writable: false, enumerable: true, configurable: false&#125;</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+        <h4 id="instanceof-判断对象类型"><a href="#instanceof-判断对象类型" class="headerlink" title="instanceof 判断对象类型"></a>instanceof 判断对象类型</h4><blockquote>
+<p>object instanceof constructor<br> object 要检测的对象<br> constructor 检测对象与之比较的构造函数</p>
+<p>instanceof 检测对象 object 在其原型链中是否存在一个构造函数的 prototype 属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Con</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cons</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> co = <span class="keyword">new</span> Con();</span><br><span class="line">co <span class="keyword">instanceof</span> Con; <span class="comment">//true 代表 co 的原型链中存在 Con.prototype </span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(co) === Con.prototype <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(co) === <span class="built_in">Object</span>.prototype <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//继承</span></span><br><span class="line">Cons.prototype = <span class="keyword">new</span> Con();</span><br><span class="line"><span class="keyword">var</span> con = <span class="keyword">new</span> Cons();</span><br><span class="line">con <span class="keyword">instanceof</span> Cons; <span class="comment">//true</span></span><br><span class="line">con <span class="keyword">instanceof</span> Con; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(con) === Con.prototype</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(con) === Cons.prototype</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//getPrototypeOf 用于获取对象原型，指定对象的对象原型是自身构造函数的原型，并非父类原型，所以只用 getPrototypeOf 验证是不正确的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//那么这里就需要用 isPrototypeOf 验证父类了</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(con)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line">Cons.prototype.isPrototypeOf(con)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line">Con.prototype.isPrototypeOf(con)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象原型指向空对象</span></span><br><span class="line">Con.prototype = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> Con();</span><br><span class="line">o <span class="keyword">instanceof</span> Con; <span class="comment">// true</span></span><br><span class="line">co <span class="keyword">instanceof</span> Con; <span class="comment">//false</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(o) === Con.prototype</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>Construct.prototype 的属性值可能会改变，改变后的值很有可能不存在于之前的实例的原型链接。</li>
+<li>浏览器中脚本可能在多个窗口间进行交互。即多个全局环境，不同的全局环境有不同的全局对象，从而拥有不同的内置类型构造函数。<br>表达式 <code>[] instanceof window.frames[0].Array</code> 会返回false，因为 <code>Array.prototype !== window.frames[0].Array.prototype</code><br><code>Array.isArray(myObj)</code> 或者 <code>Object.prototype.toString.call(myObj) === &quot;[object Array]</code>“来判断myObj是否是数组。</li>
+</ol>
 
       
     </div>
@@ -414,10 +373,6 @@
           
             <i href="/tags/javascript/" rel="tag" class="fa fa-tag"># javascript</i>
           
-            <i href="/tags/ES5/" rel="tag" class="fa fa-tag"># ES5</i>
-          
-            <i href="/tags/Object/" rel="tag" class="fa fa-tag"># Object</i>
-          
         </div>
       
 
@@ -429,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/09/Object.freeze()/" rel="next" title="Object.freeze()">
-                <i class="fa fa-chevron-left"></i> Object.freeze()
+              <a href="/2018/02/12/Object.getPrototypeOf()/" rel="next" title="Object.getPrototypeOf()">
+                <i class="fa fa-chevron-left"></i> Object.getPrototypeOf()
               </a>
             
           </div>
@@ -439,8 +394,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/09/javascript 之 对象/" rel="prev" title="javascript 之 对象">
-                javascript 之 对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/13/javascript 之 函数/" rel="prev" title="javascript 之 函数">
+                javascript 之 函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -573,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-preventExtensions-amp-amp-Object-seal-amp-amp-Object-freeze-对比表"><span class="nav-number">1.</span> <span class="nav-text">Object.preventExtensions &amp;&amp; Object.seal &amp;&amp; Object.freeze 对比表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#instanceof-判断对象类型"><span class="nav-number">1.</span> <span class="nav-text">instanceof 判断对象类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
 
           </div>
