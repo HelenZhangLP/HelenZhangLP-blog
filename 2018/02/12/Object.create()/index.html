@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject   DEMO Object.create 方法的使用12345678910111213141516171819202122232425262728293031var o;o =">
+<meta name="description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject">
 <meta name="keywords" content="javascript,ES5,Object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object.create()">
 <meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/12/Object.create()/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject   DEMO Object.create 方法的使用12345678910111213141516171819202122232425262728293031var o;o =">
+<meta property="og:description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-13T09:18:25.245Z">
+<meta property="og:updated_time" content="2018-02-13T09:20:56.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.create()">
-<meta name="twitter:description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject   DEMO Object.create 方法的使用12345678910111213141516171819202122232425262728293031var o;o =">
+<meta name="twitter:description" content="对象创建 Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。 @argm proto 创建新对象所指定的原型 @argm propertiesObject">
 
 
 
@@ -339,6 +339,7 @@
         <h4 id="对象创建"><a href="#对象创建" class="headerlink" title="对象创建"></a>对象创建</h4><blockquote>
 <p>Object.create(proto[, propertiesObject]) 使用指定的原型对象及属性创建新对象。<br> @argm proto 创建新对象所指定的原型<br> @argm propertiesObject </p>
 </blockquote>
+<a id="more"></a>
 <p><strong>DEMO Object.create 方法的使用</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o;</span><br><span class="line"></span><br><span class="line">o = <span class="built_in">Object</span>.create(<span class="literal">null</span>); <span class="comment">//&#123;&#125; No properties 原型为 Null 的空对象</span></span><br><span class="line"></span><br><span class="line">o = &#123;&#125;; <span class="comment">//以字面量方式创建的空对象就相当于，__proto__:Object，__proto__ 指向 Object，继承了 Object 中的方法属性</span></span><br><span class="line"></span><br><span class="line">o = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype); __proto__:<span class="built_in">Object</span> 结果同以字面量方式创建的对象</span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.create() 方法中参数 propertiesOjbect，创建了对象，并定义了数据属性和访问器属性</span></span><br><span class="line">o = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype, &#123;</span><br><span class="line">  <span class="comment">// foo会成为所创建对象的数据属性</span></span><br><span class="line">  foo: &#123; </span><br><span class="line">    writable:<span class="literal">true</span>,</span><br><span class="line">    configurable:<span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">"hello"</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// bar会成为所创建对象的访问器属性</span></span><br><span class="line">  bar: &#123;</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">10</span> &#125;,</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Setting `o.bar` to"</span>, value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">//&#123;foo: "hello"&#125;</span></span><br><span class="line"><span class="comment">//bar:(...)</span></span><br><span class="line"><span class="comment">//foo:"hello"</span></span><br><span class="line"><span class="comment">//get bar:ƒ ()</span></span><br><span class="line"><span class="comment">//set bar:ƒ (value)</span></span><br><span class="line"><span class="comment">//__proto__:Object</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="对象继承步骤"><a href="#对象继承步骤" class="headerlink" title="对象继承步骤"></a>对象继承步骤</h4><ul>
 <li>类构造函数中 call 父类构造函数，如果要继承多个父类，即要 call 多个父类构造函数；</li>

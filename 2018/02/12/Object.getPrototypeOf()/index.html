@@ -91,18 +91,18 @@
 
 
 
-<meta name="description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。  DEMO1234567891011var o,obj;o = Object.create(null); //o 为原型为 null 的对象Object.getPrototypeOf(o">
+<meta name="description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。">
 <meta name="keywords" content="javascript,Object">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object.getPrototypeOf()">
 <meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/12/Object.getPrototypeOf()/index.html">
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
-<meta property="og:description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。  DEMO1234567891011var o,obj;o = Object.create(null); //o 为原型为 null 的对象Object.getPrototypeOf(o">
+<meta property="og:description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-13T09:19:18.987Z">
+<meta property="og:updated_time" content="2018-02-13T09:21:18.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.getPrototypeOf()">
-<meta name="twitter:description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。  DEMO1234567891011var o,obj;o = Object.create(null); //o 为原型为 null 的对象Object.getPrototypeOf(o">
+<meta name="twitter:description" content="获取对象原型 Object.getPrototypeOf(object) 返回指定对象的原型对象 @argm object 需要获取原型的对象 @return 参数对象的原型。如果没有继承属性，则返回 null。">
 
 
 
@@ -339,6 +339,7 @@
         <h4 id="获取对象原型"><a href="#获取对象原型" class="headerlink" title="获取对象原型"></a>获取对象原型</h4><blockquote>
 <p>Object.getPrototypeOf(object) 返回指定对象的原型对象<br> @argm object 需要获取原型的对象<br> @return 参数对象的原型。如果没有继承属性，则返回 null。</p>
 </blockquote>
+<a id="more"></a>
 <p><strong>DEMO</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o,obj;</span><br><span class="line">o = <span class="built_in">Object</span>.create(<span class="literal">null</span>); <span class="comment">//o 为原型为 null 的对象</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(o); <span class="comment">//null 这个时候 o 没有继承任何对象</span></span><br><span class="line"></span><br><span class="line">o = &#123;&#125;; <span class="comment">//o 是字面量对象</span></span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(o); <span class="comment">//&#123;constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …&#125;</span></span><br><span class="line">obj = <span class="built_in">Object</span>.create(o);</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(obj) === o; <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a/</span>;</span><br><span class="line"><span class="built_in">Object</span>.getPrototypeOf(reg) === <span class="built_in">RegExp</span>.prototype; <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
 <p><code>Object.getPrototypeOf(Object) == Object.prototype //false</code></p>
 <blockquote>
