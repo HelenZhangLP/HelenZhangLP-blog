@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,OOP," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述 OOP(Object oriented Progaramming) 面向对象编程 程序设计范型 程序开发方法 程序作为基本单元将程序和数据封装在其中 目的是提高软件的灵活性、重用性、扩展性 继承   封装    多态    抽象">
+<meta name="keywords" content="javascript,OOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascrpt 之 面向对象编程">
+<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/20/javascript 之 OOP 面向对象编程/index.html">
+<meta property="og:site_name" content="HelenZhang&#39;s Blog">
+<meta property="og:description" content="概述 OOP(Object oriented Progaramming) 面向对象编程 程序设计范型 程序开发方法 程序作为基本单元将程序和数据封装在其中 目的是提高软件的灵活性、重用性、扩展性 继承   封装    多态    抽象">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-20T13:42:38.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascrpt 之 面向对象编程">
+<meta name="twitter:description" content="概述 OOP(Object oriented Progaramming) 面向对象编程 程序设计范型 程序开发方法 程序作为基本单元将程序和数据封装在其中 目的是提高软件的灵活性、重用性、扩展性 继承   封装    多态    抽象">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/20/javascript 之 OOP 面向对象编程/"/>
+
+
+
+
+
+  <title>javascrpt 之 面向对象编程 | HelenZhang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HelenZhang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我的地盘，我做主</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/20/javascript 之 OOP 面向对象编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liping Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HelenZhang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascrpt 之 面向对象编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-20T20:45:17+08:00">
+                2018-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>OOP(Object oriented Progaramming) 面向对象编程<br> 程序设计范型<br> 程序开发方法<br> 程序作为基本单元将程序和数据封装在其中<br> 目的是提高软件的灵活性、重用性、扩展性<br> 继承   封装    多态    抽象</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="OOP-经典之继承（javascript-基于原型的继承）"><a href="#OOP-经典之继承（javascript-基于原型的继承）" class="headerlink" title="OOP 经典之继承（javascript 基于原型的继承）"></a>OOP 经典之继承（javascript 基于原型的继承）</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//实例属性</span></span><br><span class="line">    <span class="keyword">this</span>.fx = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//每个函数都有一个原型对象属性</span></span><br><span class="line">Foo.prototype <span class="comment">//typeof Foo.prototype //"object"</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">// constructor : ƒ Foo()</span></span><br><span class="line"><span class="comment">// __proto__ : Object</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义原型属性</span></span><br><span class="line">Foo.prototype.px = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Foo(); </span><br><span class="line">obj.fx <span class="comment">//1</span></span><br><span class="line">obj.px <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">obj.__proto__ === Foo.prototype</span><br><span class="line"><span class="comment">//true 实例的原型是构造器的prototype</span></span><br><span class="line"></span><br><span class="line">obj</span><br><span class="line"><span class="comment">//Foo &#123;fx: 1,__proto__: Object&#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="继承-demo"><a href="#继承-demo" class="headerlink" title="继承 demo"></a>继承 demo</h5><blockquote>
+<p>上面可以看出，一个实例包括了实例属性方法，还有原型。原型可以被多个实例共享。那么要实现原型继承，可以实现共享父类原型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化 Person 类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//name,age 不同实例不同，所以这里定义为实例属性</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//像 body,leg,arm 的个数是共性，所以设置为原型属性共享，子类可以继承</span></span><br><span class="line">Person.prototype.LEG_NUM = <span class="number">2</span>;</span><br><span class="line">Person.prototype.ARM_NUM = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法共享</span></span><br><span class="line">Person.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hi,everyone! I am '</span>+<span class="keyword">this</span>.name+<span class="string">',I\'m '</span>+<span class="keyword">this</span>.age+<span class="string">' years old'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化 Member</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Member</span>(<span class="params">name,age,department</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//对象冒充，继承父类的实例属性</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>,name,age);</span><br><span class="line">    <span class="keyword">this</span>.department = department;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现子类继承父类的原型</span></span><br><span class="line">Member.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br><span class="line">Member.prototype.constructor = Member;</span><br><span class="line"></span><br><span class="line">Member.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hi,everyone! I am '</span>+<span class="keyword">this</span>.name+<span class="string">',I\'m '</span>+<span class="keyword">this</span>.age+<span class="string">' years old,and I serve in the '</span>+<span class="keyword">this</span>.department+<span class="string">'  department. '</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hel = <span class="keyword">new</span> Member(<span class="string">'hel'</span>,<span class="number">28</span>,<span class="string">'sales'</span>);</span><br><span class="line">hel.LEG_NUM; <span class="comment">//2</span></span><br><span class="line">hel.introduce();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>以上DEMO原型继承</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: hel:&#123;</span><br><span class="line">    age:28,</span><br><span class="line">    department:&quot;sales&quot;</span><br><span class="line">    name:&quot;hel&quot;,</span><br><span class="line">    __proto__: Person</span><br><span class="line">&#125;</span><br><span class="line">op1=&gt;operation: Person: &#123;</span><br><span class="line">    name:name,</span><br><span class="line">    age:age,</span><br><span class="line">    prototype: &#123;</span><br><span class="line">        LEG_NUM:2,</span><br><span class="line">        ARM_NUM:2,</span><br><span class="line">        hi: function()&#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    __proto__: Ojbect</span><br><span class="line">&#125;</span><br><span class="line">op2=&gt;operation: Object: &#123;</span><br><span class="line">    hasOwnProperty: function()&#123;&#125;,</span><br><span class="line">    valueOf: function()&#123;&#125;,</span><br><span class="line">    toString: function()&#123;&#125;,</span><br><span class="line">    ...</span><br><span class="line">    __proto__: null</span><br><span class="line">&#125;</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;op1-&gt;op2-&gt;e</span><br></pre></td></tr></table></figure></p>
+<h4 id="继承的方式"><a href="#继承的方式" class="headerlink" title="继承的方式"></a>继承的方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Member</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Member.prototype.mfn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'member function'</span>);&#125;</span><br><span class="line"><span class="comment">//实现继承</span></span><br><span class="line">Member.prototype = Person.prototype <span class="comment">//Member 原型属性方法丢失</span></span><br><span class="line">Member.prototype = <span class="keyword">new</span> Person() <span class="comment">//不可取，因为 Person 实例时传参有问题</span></span><br><span class="line">Member.prototype = <span class="built_in">Object</span>.create(Person.prototype) <span class="comment">//最优方案，Object.create 方法创建一个空对象，并让其原型指向 Person.prototype</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.create() 只支持到 IE9</span></span><br><span class="line"><span class="comment">//解决方式：</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">Object</span>.create) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params">proto</span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">        F.prototype = proto;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="OOP-经典之多态（重载）"><a href="#OOP-经典之多态（重载）" class="headerlink" title="OOP 经典之多态（重载）"></a>OOP 经典之多态（重载）</h4><blockquote>
+<p>overloading 类以统一的方式处理不同类型数据的一种手段<br>  多个同名函数同时存在，参数的个数及类型不同<br>  重载是类多态的表现<br>  调用方法时传入不同个数、不同类型则决定使用不同的同名方法，多态表现。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里存在两个同名函数 Person，参数分两种，对象传参或分别传参，个数为 1 或 N 个，对于 Person 类的传参方式可能是两种，对象传参或分别传参，以下区分不同数据类型对参数进行处理</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//避免传参为 null 或未传参</span></span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">0</span>]) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[<span class="number">0</span>] === <span class="string">'object'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">0</span>].name)&#123;</span><br><span class="line">                <span class="keyword">this</span>.name = <span class="built_in">arguments</span>[<span class="number">0</span>].name;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">0</span>].age)&#123;</span><br><span class="line">                <span class="keyword">this</span>.age = <span class="built_in">arguments</span>[<span class="number">0</span>].age;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> <span class="built_in">arguments</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[item] == <span class="string">'string'</span>)&#123;</span><br><span class="line">                    <span class="keyword">this</span>.name = <span class="built_in">arguments</span>[item];</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">arguments</span>[item] == <span class="string">'number'</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.age = <span class="built_in">arguments</span>[item];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Person 类继承了 Object 的 toString 方法，这里给 Person 定义子类 toString 方法</span></span><br><span class="line">Person.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'name is '</span>+<span class="keyword">this</span>.name+<span class="string">',age is '</span>+<span class="keyword">this</span>.age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//分别以不同的方式传参，验证重载</span></span><br><span class="line"><span class="keyword">var</span> hel = <span class="keyword">new</span> Person(<span class="string">'hel'</span>,<span class="number">32</span>);</span><br><span class="line">hel.toString();</span><br><span class="line"><span class="keyword">var</span> gulu = <span class="keyword">new</span> Person(&#123;<span class="attr">name</span>:<span class="string">'gulu'</span>,<span class="attr">age</span>:<span class="number">2</span>&#125;)</span><br><span class="line">gulu.toString();</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="OOP-经典之封装"><a href="#OOP-经典之封装" class="headerlink" title="OOP 经典之封装"></a>OOP 经典之封装</h4><h4 id="OOP-子类调用父类方法"><a href="#OOP-子类调用父类方法" class="headerlink" title="OOP 子类调用父类方法"></a>OOP 子类调用父类方法</h4><blockquote>
+<p>通过对象冒充子类调用父类方法，进行父类初始化<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params">property</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = property;</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do sth</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//初始化子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Suber</span>(<span class="params">p1,p2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.p2 = p2;</span><br><span class="line">    <span class="comment">//初始化子类同时希望能够初始化父类</span></span><br><span class="line">    Super.call(<span class="keyword">this</span>, p1);</span><br><span class="line">&#125;</span><br><span class="line">Suber.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//初始化子类同时希望能够初始化父类方法</span></span><br><span class="line">    Super.prototype.init.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="OOP-链式调用"><a href="#OOP-链式调用" class="headerlink" title="OOP 链式调用"></a>OOP 链式调用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ClassManager</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">ClassManager.prototype.addClass = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//do sth</span></span><br><span class="line">    <span class="built_in">console</span>.log(str);</span><br><span class="line">    <span class="comment">//返回当前对象作用域</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cm = <span class="keyword">new</span> ClassManager();</span><br><span class="line">cm.addClass(<span class="string">'ca'</span>).addClass(<span class="string">'cb'</span>); <span class="comment">//ca cb</span></span><br></pre></td></tr></table></figure>
+<h4 id="OOP-经典之抽象类"><a href="#OOP-经典之抽象类" class="headerlink" title="OOP 经典之抽象类"></a>OOP 经典之抽象类</h4><blockquote>
+<p>谈抽象类之前，先说说普通类<br>  普通的类是一个功能类，可以直接实例化对象。普通类中可以包含构造方法，普通方法，static 方法、常量、变量等。<br>  抽象类是有抽象方法的类，而抽象方法是没有方法体的方法<br>  抽象类不能实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个抽象类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">DetectorBase</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//如果要调用抽象类，则抛出异常</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Abstract class can not be invoked directly'</span>);</span><br><span class="line">&#125;</span><br><span class="line">DetectorBase.detect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">DetectorBase.stop = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">DetectorBase.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类继承抽象类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinkDetector</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">LinkDetector.prototype = <span class="built_in">Object</span>.create(Detector.prototype);</span><br><span class="line">LinkDetector.prototype.constructor = LinkDetector;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="ES5-defineProperty"><a href="#ES5-defineProperty" class="headerlink" title="ES5 defineProperty"></a>ES5 defineProperty</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>,<span class="string">'name'</span>,&#123;<span class="attr">value</span>:name,<span class="attr">enumerable</span>:<span class="literal">true</span>&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Person,<span class="string">'ARMS_NUM'</span>,&#123;<span class="attr">value</span>:<span class="number">2</span>,<span class="attr">enumerable</span>:<span class="literal">true</span>&#125;)</span><br><span class="line"><span class="comment">//Person.prototype 被密封，不能添加删除属性，但可修改属性值</span></span><br><span class="line"><span class="built_in">Object</span>.seal(Person.prototype);</span><br><span class="line">Person 被密封，不能添加删除属性，但可修改属性值</span><br><span class="line"><span class="built_in">Object</span>.seal(Person);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,cName</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cName = cName;</span><br><span class="line">    Person.call(<span class="keyword">this</span>,name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br><span class="line">Student.prototype.constructor = Student;</span><br></pre></td></tr></table></figure>
+<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> moduleA;</span><br><span class="line">moduleA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prop = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        func: func,</span><br><span class="line">        prop: prop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> moduleA;</span><br><span class="line">moduleA = <span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prop = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.func: func;</span><br><span class="line">    <span class="keyword">this</span>.prop: prop;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="">面向对象编程之实现探测器</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <i href="/tags/javascript/" rel="tag" class="fa fa-tag"># javascript</i>
+          
+            <i href="/tags/OOP/" rel="tag" class="fa fa-tag"># OOP</i>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/20/javascript 探测器/" rel="next" title="javascript 探测器">
+                <i class="fa fa-chevron-left"></i> javascript 探测器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/20/javascrpt 之 正则表达式/" rel="prev" title="javascrpt 之 正则表达式">
+                javascrpt 之 正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Liping Zhang</p>
+              <p class="site-description motion-element" itemprop="description">进来坐坐，喝杯茶，聊聊了</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-经典之继承（javascript-基于原型的继承）"><span class="nav-number">2.</span> <span class="nav-text">OOP 经典之继承（javascript 基于原型的继承）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#继承-demo"><span class="nav-number">2.1.</span> <span class="nav-text">继承 demo</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承的方式"><span class="nav-number">3.</span> <span class="nav-text">继承的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-经典之多态（重载）"><span class="nav-number">4.</span> <span class="nav-text">OOP 经典之多态（重载）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-经典之封装"><span class="nav-number">5.</span> <span class="nav-text">OOP 经典之封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-子类调用父类方法"><span class="nav-number">6.</span> <span class="nav-text">OOP 子类调用父类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-链式调用"><span class="nav-number">7.</span> <span class="nav-text">OOP 链式调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP-经典之抽象类"><span class="nav-number">8.</span> <span class="nav-text">OOP 经典之抽象类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES5-defineProperty"><span class="nav-number">9.</span> <span class="nav-text">ES5 defineProperty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块化"><span class="nav-number">10.</span> <span class="nav-text">模块化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liping Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
