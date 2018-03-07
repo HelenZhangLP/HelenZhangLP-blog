@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript,ES5," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Object.freeze(obj) 冻结一个对象。 即不能向这个对象添加新的属性，   不能修改其已有属性的值，   不能删除已有属性，   不能修改该对象已有属性的可枚举性、可配置性、可写性。   也就是说，这个对象永远是不可变的。   返回被冻结的对象。   修改的属性如果是个对象，那该属性的值对象可以被修改，除非同样是被冻结的对象  冻结对象 DEMO123456789101112131">
+<meta name="keywords" content="javascript,ES5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object.freeze()">
+<meta property="og:url" content="http://gulu1107.top/blogFront/2018/02/09/Object.freeze()/index.html">
+<meta property="og:site_name" content="HelenZhang&#39;s Blog">
+<meta property="og:description" content="Object.freeze(obj) 冻结一个对象。 即不能向这个对象添加新的属性，   不能修改其已有属性的值，   不能删除已有属性，   不能修改该对象已有属性的可枚举性、可配置性、可写性。   也就是说，这个对象永远是不可变的。   返回被冻结的对象。   修改的属性如果是个对象，那该属性的值对象可以被修改，除非同样是被冻结的对象  冻结对象 DEMO123456789101112131">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-22T07:12:46.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object.freeze()">
+<meta name="twitter:description" content="Object.freeze(obj) 冻结一个对象。 即不能向这个对象添加新的属性，   不能修改其已有属性的值，   不能删除已有属性，   不能修改该对象已有属性的可枚举性、可配置性、可写性。   也就是说，这个对象永远是不可变的。   返回被冻结的对象。   修改的属性如果是个对象，那该属性的值对象可以被修改，除非同样是被冻结的对象  冻结对象 DEMO123456789101112131">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gulu1107.top/blogFront/2018/02/09/Object.freeze()/"/>
+
+
+
+
+
+  <title>Object.freeze() | HelenZhang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HelenZhang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我的地盘，我做主</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gulu1107.top/blogFront/2018/02/09/Object.freeze()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liping Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/GULU.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HelenZhang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Object.freeze()</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T16:51:05+08:00">
+                2018-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/Object/" itemprop="url" rel="index">
+                    <span itemprop="name">Object</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Object.freeze(obj)<br> 冻结一个对象。<br> 即不能向这个对象添加新的属性，<br>   不能修改其已有属性的值，<br>   不能删除已有属性，<br>   不能修改该对象已有属性的可枚举性、可配置性、可写性。<br>   也就是说，这个对象永远是不可变的。<br>   返回被冻结的对象。<br>   <code>修改的属性如果是个对象，那该属性的值对象可以被修改，除非同样是被冻结的对象</code></p>
+</blockquote>
+<p><strong>冻结对象 DEMO</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  prop: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  foo: <span class="string">'bar'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.foo = <span class="string">'baz'</span>;</span><br><span class="line">obj.lumpy = <span class="string">'woof'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.foo); <span class="comment">//baz</span></span><br><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">// ["prop", "foo", "lumpy"] 对象 obj 属性可修改，可添加</span></span><br><span class="line"><span class="keyword">delete</span> obj.prop;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj); <span class="comment">//["foo", "lumpy"] //对象 obj 属性可删除</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 作为参数传递的对象与返回的对象都被冻结</span></span><br><span class="line"><span class="comment">// 所以不必保存返回的对象（因为两个对象全等）</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.freeze(obj); <span class="comment">//也就是说这里会改变原对象</span></span><br><span class="line"></span><br><span class="line">o === obj; <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj); <span class="comment">// === true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象冻结后任何操作都无效</span></span><br><span class="line">obj.foo = <span class="string">'quux'</span>; <span class="comment">//baz</span></span><br><span class="line">obj.quaxxor = <span class="string">'the friendly duck'</span>;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj)<span class="comment">//["foo", "lumpy"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在严格模式，如此行为将抛出 TypeErrors</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  obj.foo = <span class="string">'sparky'</span>; <span class="comment">// throws a TypeError</span></span><br><span class="line">  <span class="keyword">delete</span> obj.quaxxor; <span class="comment">// throws a TypeError</span></span><br><span class="line">  obj.sparky = <span class="string">'arf'</span>; <span class="comment">// throws a TypeError</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fail();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 试图通过 Object.defineProperty 更改属性</span></span><br><span class="line"><span class="comment">// 下面两个语句都会抛出 TypeError.</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'ohai'</span>, &#123; <span class="attr">value</span>: <span class="number">17</span> &#125;);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'foo'</span>, &#123; <span class="attr">value</span>: <span class="string">'eit'</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也不可能设置属性</span></span><br><span class="line"><span class="comment">// 下面两个语句都会抛出 TypeError.</span></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(obj, &#123; <span class="attr">x</span>: <span class="number">20</span> &#125;)</span><br><span class="line">obj.__proto__ = &#123; <span class="attr">x</span>: <span class="number">20</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>冻结数组 DEMO</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//元组(tuple):与数组类似，但无组一旦初始化就不能修改</span></span><br><span class="line"><span class="comment">//冻结的数组类似于一个元组</span></span><br><span class="line"><span class="keyword">let</span> a=[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">Object</span>.freeze(a);</span><br><span class="line"><span class="comment">// </span></span><br><span class="line">a[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">a.push(<span class="number">2</span>); <span class="comment">//Uncaught TypeError: Cannot add property 1, object is not extensible 数组a被冻结，不能修改</span></span><br><span class="line">a=[<span class="number">0</span>]; <span class="comment">//1 冻结的数组可以正常地拆包.</span></span><br><span class="line"><span class="keyword">let</span> b, c;</span><br><span class="line">[b,c]=<span class="built_in">Object</span>.freeze([<span class="number">1</span>,<span class="number">2</span>]); <span class="comment">//[1, 2]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>浅冻结 不是常量的冻结</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;</span><br><span class="line">  internal: &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj1);</span><br><span class="line">obj1.internal.a = <span class="string">'aValue'</span>;</span><br><span class="line"></span><br><span class="line">obj1.internal.a <span class="comment">// 'aValue'</span></span><br></pre></td></tr></table></figure></p>
+<p>对于一个常量对象，整个引用图（直接和间接引用其他对象）只能引用不可变的冻结对象。<br>冻结对象被认为是不可变的，冻结对象中的整个对象状态（对其他对象的值和引用）是固定的<br><code>注意，字符串，数字，布尔值总是不可变，函数和数组是对象</code><br>要使对象不可变，需要递归冻结每个类型为对象的属性（深冻结）。<br>当你知道对象在引用图中不包含任何循环 (循环引用)时，将根据你的设计逐个使用该模式，否则将触发无限循环。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现深冻结</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepFreeze</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 取回定义在obj上的属性名</span></span><br><span class="line">  <span class="keyword">var</span> propNames = <span class="built_in">Object</span>.getOwnPropertyNames(obj);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// step1 冻结属性</span></span><br><span class="line">  propNames.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prop = obj[name];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果prop是个对象，递归冻结属性</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> prop == <span class="string">'object'</span> &amp;&amp; prop !== <span class="literal">null</span>)</span><br><span class="line">      deepFreeze(prop);</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.freeze(obj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj2 = &#123;</span><br><span class="line">  internal: &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//验证深冻结</span></span><br><span class="line">deepFreeze(obj2);</span><br><span class="line">obj2.internal.a = <span class="string">'anotherValue'</span>;</span><br><span class="line">obj2.internal.a; <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="对比-Object-seal"><a href="#对比-Object-seal" class="headerlink" title="对比 Object.seal()"></a>对比 Object.seal()</h6><blockquote>
+<p>用Object.seal()密封的对象可以改变它们现有的属性。使用Object.freeze() 冻结的对象中现有属性是不可变的。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <i href="/tags/javascript/" rel="tag" class="fa fa-tag"># javascript</i>
+          
+            <i href="/tags/ES5/" rel="tag" class="fa fa-tag"># ES5</i>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/09/Object.isFrozen()/" rel="next" title="Object.isFrozen()">
+                <i class="fa fa-chevron-left"></i> Object.isFrozen()
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/09/Object.preventExtensions&&Object.seal&&Object.freeze/" rel="prev" title="Object.preventExtensions && Object.seal && Object.freeze 对比">
+                Object.preventExtensions && Object.seal && Object.freeze 对比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/GULU.jpeg"
+                alt="Liping Zhang" />
+            
+              <p class="site-author-name" itemprop="name">Liping Zhang</p>
+              <p class="site-description motion-element" itemprop="description">进来坐坐，喝杯茶，聊聊了</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#对比-Object-seal"><span class="nav-number">1.</span> <span class="nav-text">对比 Object.seal()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liping Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+<script src='js/raphael'></script>
+<script src='js/underscore'></script>
+<script src='js/sequence-diagram'></script>
+<script src='js/flowchart'></script>
+<script type="text/javascript">
+partial('chart')
+</script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
