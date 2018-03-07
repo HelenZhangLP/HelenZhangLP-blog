@@ -361,8 +361,17 @@
 <li>var 同样可以只声明，不赋初值，初值默认为 undefined，与 let 相反，没有{}作用域的限制。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a11 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b11 = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> a11 = <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">var</span> b11 = <span class="number">4</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a11,b11);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a11,b11);</span><br><span class="line"><span class="comment">// 3 4</span></span><br><span class="line"><span class="comment">// 1 4</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;Bob: Hello Bob, how are you?</span><br><span class="line">Note right of Bob: Bob thinks</span><br><span class="line">Bob--&gt;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
-<h4 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title React 生命周期</span><br><span class="line">section Mounted</span><br><span class="line">    React.renderComponent() :a1, 2018-01-01, 5d</span><br><span class="line">section Update</span><br><span class="line">    setState()/setProps()   :2018-01-09, 5d</span><br><span class="line">    render()    :2018-01-14, 5d</span><br><span class="line">section Unmounted</span><br><span class="line">    React.unmountAndReleaseReactRootNode(): 40d</span><br></pre></td></tr></table></figure>
+<div class="seq">Alice-&gt;Bob: Hello Bob, how are you?
+Note right of Bob: Bob thinks
+Bob--&gt;Alice: I am good thanks!</div>
+<h4 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h4><div class="gantt">title React 生命周期
+section Mounted
+    React.renderComponent() :a1, 2018-01-01, 5d
+section Update
+    setState()/setProps()   :2018-01-09, 5d
+    render()    :2018-01-14, 5d
+section Unmounted
+    React.unmountAndReleaseReactRootNode(): 40d</div>
 <h4 id="mvvm-模式"><a href="#mvvm-模式" class="headerlink" title="mvvm 模式"></a>mvvm 模式</h4><h4 id="扩展运算符-…"><a href="#扩展运算符-…" class="headerlink" title="扩展运算符 …"></a>扩展运算符 …</h4><h4 id="双冒号运算符"><a href="#双冒号运算符" class="headerlink" title="双冒号运算符 ::"></a>双冒号运算符 ::</h4><h4 id="async-await-语法糖"><a href="#async-await-语法糖" class="headerlink" title="async/await 语法糖"></a>async/await 语法糖</h4><h4 id="git-删除分析"><a href="#git-删除分析" class="headerlink" title="git 删除分析"></a>git 删除分析</h4><h4 id="git-分支合并"><a href="#git-分支合并" class="headerlink" title="git 分支合并"></a>git 分支合并</h4><h4 id="关于作用域的面试题"><a href="#关于作用域的面试题" class="headerlink" title="关于作用域的面试题"></a>关于作用域的面试题</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.a = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>,<span class="number">1</span>);</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>,<span class="number">2</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">	setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>,<span class="number">3</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Test();</span><br><span class="line"><span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125; 1</span></span><br><span class="line"><span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125; 2</span></span><br><span class="line"><span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125; 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Test();</span><br><span class="line"><span class="comment">// Test &#123;a: 1&#125; 1</span></span><br><span class="line"><span class="comment">// Window &#123;postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …&#125; 2</span></span><br><span class="line"><span class="comment">// Test &#123;a: 1&#125; 3</span></span><br></pre></td></tr></table></figure>
 <h4 id="关于-promise-函数的面试题"><a href="#关于-promise-函数的面试题" class="headerlink" title="关于 promise 函数的面试题"></a>关于 promise 函数的面试题</h4><blockquote>
 <p>打印结果：2 4 1 3<br>  解析：setTimeout 与 then 都是异步执行的，按照代码的执行顺序先实例化 Promise，同时执行回调打印 2 ，异步需要时间，接着打印 4，setTimeout ，延时更长一些。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">	resolve(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure></p>
@@ -595,16 +604,6 @@
 
 
 
-
-
-<script src='../../source/js/src/raphael.js'></script>
-<script src='../../source/js/src/underscore.js'></script>
-<script src='../../source/js/src/sequence-diagram.js'></script>
-<script src='../../source/js/src/flowchart.js'></script>
-<script type="text/javascript">
-partial('chart')
-</script>
-
         
 
 
@@ -711,6 +710,20 @@ partial('chart')
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
+
+  
+
+
+
+	
+	  <script type="text/javascript" src="/js/src/raphael.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/underscore.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/sequence-diagram.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/flowchart.js?v=5.1.4"></script>
+	
 
 
   

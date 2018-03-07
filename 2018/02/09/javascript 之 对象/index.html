@@ -389,7 +389,11 @@
 <h4 id="对象标签"><a href="#对象标签" class="headerlink" title="对象标签"></a>对象标签</h4><blockquote>
 <p>[[proto]] [[class]] [[extensible]]</p>
 </blockquote>
-<p><strong>[[proto]]</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj-&gt;obj.prototype: [[proto]]</span><br><span class="line">Note left of obj: x=1,y=2</span><br><span class="line">obj.prototype-&gt;Object.prototype: [[proto]]</span><br><span class="line">Note left of obj.prototype: z=3</span><br><span class="line">Object.prototype-&gt;null:</span><br></pre></td></tr></table></figure></p>
+<p><strong>[[proto]]</strong><br><div class="seq">obj-&gt;obj.prototype: [[proto]]
+Note left of obj: x=1,y=2
+obj.prototype-&gt;Object.prototype: [[proto]]
+Note left of obj.prototype: z=3
+Object.prototype-&gt;null:</div></p>
 <p><strong>[[class]]</strong></p>
 <blockquote>
 <p>如下 demo 用于获取 class 标签<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClass</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(o).slice(<span class="number">8</span>,<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getClass(<span class="literal">null</span>); <span class="comment">//Null</span></span><br><span class="line">getClass(<span class="literal">undefined</span>); <span class="comment">//Undefined</span></span><br><span class="line">getClass(<span class="number">1</span>); <span class="comment">//Number</span></span><br><span class="line">getClass(<span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)); <span class="comment">//Number</span></span><br><span class="line">getClass(<span class="literal">true</span>); <span class="comment">//Boolean</span></span><br><span class="line">getClass(<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>)); <span class="comment">//Boolean</span></span><br></pre></td></tr></table></figure></p>
@@ -636,16 +640,6 @@
 
 
 
-
-
-<script src='../../source/js/src/raphael.js'></script>
-<script src='../../source/js/src/underscore.js'></script>
-<script src='../../source/js/src/sequence-diagram.js'></script>
-<script src='../../source/js/src/flowchart.js'></script>
-<script type="text/javascript">
-partial('chart')
-</script>
-
         
 
 
@@ -752,6 +746,20 @@ partial('chart')
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
+
+  
+
+
+
+	
+	  <script type="text/javascript" src="/js/src/raphael.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/underscore.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/sequence-diagram.js?v=5.1.4"></script>
+	
+	  <script type="text/javascript" src="/js/src/flowchart.js?v=5.1.4"></script>
+	
 
 
   
