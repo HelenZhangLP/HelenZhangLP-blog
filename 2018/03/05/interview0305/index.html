@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="HelenZhang&#39;s Blog">
 <meta property="og:description" content="var let const 区别 js 三种定义变量的方式，分别是 var/let/const   const 定义的变量必须初始化，不可以修改。 123456const a// Uncaught SyntaxError: Missing initializer in const declarationconst a = 1;a = 2;// Uncaught TypeError: Assignm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T00:45:35.890Z">
+<meta property="og:updated_time" content="2018-03-07T01:31:57.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试结果整理（3&#x2F;5）">
 <meta name="twitter:description" content="var let const 区别 js 三种定义变量的方式，分别是 var/let/const   const 定义的变量必须初始化，不可以修改。 123456const a// Uncaught SyntaxError: Missing initializer in const declarationconst a = 1;a = 2;// Uncaught TypeError: Assignm">
@@ -361,9 +361,16 @@
 <li>var 同样可以只声明，不赋初值，初值默认为 undefined，与 let 相反，没有{}作用域的限制。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a11 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b11 = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">let</span> a11 = <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">var</span> b11 = <span class="number">4</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a11,b11);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a11,b11);</span><br><span class="line"><span class="comment">// 3 4</span></span><br><span class="line"><span class="comment">// 1 4</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<div class="seq">Alice-&gt;Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob--&gt;Alice: I am good thanks!</div>
+<div class="flow">st=&gt;start: Start:&gt;https://www.zybuluo.com
+io=&gt;inputoutput: verification
+op=&gt;operation: Your Operation
+cond=&gt;condition: Yes or No?
+sub=&gt;subroutine: Your Subroutine
+e=&gt;end
+
+st-&gt;io-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;sub-&gt;io</div>
 <h4 id="react-生命周期"><a href="#react-生命周期" class="headerlink" title="react 生命周期"></a>react 生命周期</h4><div class="gantt">title React 生命周期
 section Mounted
     React.renderComponent() :a1, 2018-01-01, 5d
